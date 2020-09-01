@@ -1,0 +1,11 @@
+{
+    "products": {
+        "page-title": "Products"
+    },
+    "product": {
+        "name": "Product name",
+        "unitPrice": "Unit price",
+        "description": "Description",
+        "unitsInStock": "Units in stock"
+    } 
+}
