@@ -5,6 +5,12 @@
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
 {
+  "compilerOptions": {
+    "target": "es5",
+    "experimentalDecorators": true,
+    "noEmit": true,
+    "noLib": false,
+  },
   "files": [],
   "references": [
     {
