@@ -7,5 +7,8 @@
         "unitPrice": "Prix unitaire",
         "description": "Description",
         "unitsInStock": "Unités en stock"
+    },
+    "cart": {
+        "add-to-cart": "Ajouter au panier"
     } 
 }
