@@ -11,6 +11,19 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslationComponent } from './components/translation/translation.component';
 
+// import Routes module
+import { Routes, RouterModule } from '@angular/router'
+
+// define the routes. Order of routes is important. First match wins. Start from most specific to generic
+const routes: Routes = [
+ {path: 'category/:id', component: ProductListComponent},
+ {path: 'category', component: ProductListComponent},
+ {path: 'products', component: ProductListComponent},
+ {path: '', redirectTo: '/products', pathMatch: 'full'},
+ // path: '**'. The generic wild card. It will match on anything that didn't match above routes.
+ {path: '**', redirectTo: '/products', pathMatch: 'full'},
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +31,11 @@ import { TranslationComponent } from './components/translation/translation.compo
     TranslationComponent
   ],
   imports: [
+    // Configure Router based on our routes
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
+    // Configure Translation module.
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -29,6 +45,7 @@ import { TranslationComponent } from './components/translation/translation.compo
   })
   ],
   providers: [ProductService],
+  // import bootstrap directly on project instead of the classic html header import method
   bootstrap: [AppComponent]
 })
 export class AppModule { }
