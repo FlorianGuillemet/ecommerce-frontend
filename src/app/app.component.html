@@ -11,16 +11,11 @@
       <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
           <li>
-            <a href="#">Books</a>
+            <!-- Set up Toute Links to pass category id param. "routerLink" is based on Routes configuration -> use ProductListCompoment -->
+            <a routerLink="/category/1" routerLinkActive="active-link">Books</a>
           </li>
           <li>
-            <a href="#">Coffee Mugs</a>
-          </li>
-          <li>
-            <a href="#">Mouse Pads</a>
-          </li>
-          <li>
-            <a href="#">Luggage Tags</a>
+            <a routerLink="/category/2" routerLinkActive="active-link">Coffee Mugs</a>
           </li>
         </ul>
       </nav>
@@ -56,9 +51,10 @@
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <app-translation></app-translation>
 
-    <app-product-list></app-product-list>
+    <!-- Router Outlet acts as a placeholder. Renders the desired component based on route --> <!-- <app-product-list></app-product-list> -->
+    <app-router-outlet></app-router-outlet>
+    
 
   </div>
 </div>
