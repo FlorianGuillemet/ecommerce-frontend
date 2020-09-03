@@ -12,7 +12,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslationComponent } from './components/translation/translation.component';
 
 // import Routes module
-import { Routes, RouterModule } from '@angular/router'
+import { Routes, RouterModule } from '@angular/router';
 
 // define the routes. Order of routes is important. First match wins. Start from most specific to generic
 const routes: Routes = [
