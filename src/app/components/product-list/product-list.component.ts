@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   currentCategoryId: number;
+  currentCategoryName: string;
 
 
   constructor(private productService: ProductService,
@@ -43,6 +44,12 @@ export class ProductListComponent implements OnInit {
     this.productService.getProductListByCategory(this.currentCategoryId).subscribe(
       data => {
         this.products = data;
+      }
+    );
+
+    this.productService.getProductCategory(this.currentCategoryId).subscribe(
+      data => {
+        this.currentCategoryName = data.categoryName;
       }
     );
   }

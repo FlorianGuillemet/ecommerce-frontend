@@ -37,9 +37,17 @@ export class ProductService {
 
   getProductCategories(): Observable<ProductCategory[]> {
 
-    return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
+    return this.httpClient.get<GetResponseProductCategories>(this.categoryUrl).pipe(
       map(response => response._embedded.productCategory)
     );
+  }
+
+  getProductCategory(categoryId: number): Observable<ProductCategory> {
+
+    const searchUrl = `${this.categoryUrl}/${categoryId}`;
+
+    // don't need the map to unwrap the JSON because he contain the searching entity directly.
+    return this.httpClient.get<ProductCategory>(searchUrl);
   }
 }
 
@@ -50,7 +58,7 @@ interface GetResponseProducts {
   };
 }
 
-interface GetResponseProductCategory {
+interface GetResponseProductCategories {
   _embedded: {
     productCategory: ProductCategory[];
   };
