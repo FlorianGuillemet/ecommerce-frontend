@@ -46,7 +46,7 @@ export class ProductService {
 
     const searchUrl = `${this.categoryUrl}/${categoryId}`;
 
-    // don't need the map to unwrap the JSON because he contain the searching entity directly.
+    // don't need the map to unwrap the JSON because he contains the searching entity directly.
     return this.httpClient.get<ProductCategory>(searchUrl);
   }
 }

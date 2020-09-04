@@ -14,9 +14,11 @@ import { TranslationComponent } from './components/translation/translation.compo
 // import Routes module
 import { Routes, RouterModule } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 // define the routes. Order of routes is important. First match wins. Start from most specific to generic
 const routes: Routes = [
+ {path: 'search/:keyword', component: ProductListComponent},
  {path: 'category/:id', component: ProductListComponent},
  {path: 'category', component: ProductListComponent},
  {path: 'products', component: ProductListComponent},
@@ -30,7 +32,8 @@ const routes: Routes = [
     AppComponent,
     ProductListComponent,
     TranslationComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     // Configure Router based on our routes
