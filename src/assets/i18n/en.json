@@ -1,6 +1,7 @@
 {
     "products": {
-        "page-title": "Products"
+        "page-title": "Products",
+        "no-products": "No products found."
     },
     "product": {
         "name": "Product name",
@@ -10,5 +11,8 @@
     },
     "cart": {
         "add-to-cart": "Add to cart"
+    },
+    "nav-bar": {
+        "search-btn": "Search" 
     } 
 }

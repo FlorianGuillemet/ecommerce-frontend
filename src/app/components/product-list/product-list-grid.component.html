@@ -12,6 +12,13 @@
                         <a href="#" class="primary-btn">{{ 'cart.add-to-cart' | translate }}</a>
                     </div>
                 </div>
+
+                <!-- if products empty then display a message -->
+                <!-- ? is a safe navigation operator. Guards against null and undefined values in property paths.-->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    {{ 'products.no-products' | translate }} 
+                </div>
+
             </div>
         </div>
     </div>
