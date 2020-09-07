@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   currentCategoryId: number;
   currentCategoryName: string;
+  searchMode: boolean;
 
 
   constructor(private productService: ProductService,
@@ -27,6 +28,17 @@ export class ProductListComponent implements OnInit {
   }
 
   listProducts(): void {
+
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    this.searchMode
+      ? this.handleSearchProducts()
+      : this.handleListProducts();
+
+  }
+
+  handleListProducts(): void {
+
     // check if "id parameter is available on the route".
     // "route" is the activated route.
     // "snapshot": is the state of route at this given moment in time.
@@ -47,9 +59,23 @@ export class ProductListComponent implements OnInit {
       }
     );
 
+    // get the product name
     this.productService.getProductCategory(this.currentCategoryId).subscribe(
       data => {
         this.currentCategoryName = data.categoryName;
+      }
+    );
+  }
+
+  handleSearchProducts(): void {
+
+    // get the keyword pass in param
+    const searchKeyword = this.route.snapshot.paramMap.get('keyword');
+
+    // get the Products will match with the keyword
+    this.productService.getSearchProducts(searchKeyword).subscribe(
+      data => {
+        this.products = data;
       }
     );
   }

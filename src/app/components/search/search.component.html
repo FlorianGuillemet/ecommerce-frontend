@@ -3,6 +3,7 @@
     <input #myInput type="text" 
             placeholder="Search for products ..." 
             class="au-input au-input-xl" 
+            (keyup)="search(myInput.value)"
             (keyup.enter)="search(myInput.value)"/>
 
     <button (click)="search(myInput.value)"

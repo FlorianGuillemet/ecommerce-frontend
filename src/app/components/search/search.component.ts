@@ -14,8 +14,14 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search(value: string): void {
-    this.router.navigateByUrl(`/search/${value}`);
+  search(value: string | null ): void {
+    const valueTrim = value.trim();
+
+    if (valueTrim.length >= 3) {
+      this.router.navigateByUrl(`/search/${valueTrim}`);
+    } else if (valueTrim.length === 0) {
+      this.router.navigateByUrl(`/products`);
+    }
   }
 
 }

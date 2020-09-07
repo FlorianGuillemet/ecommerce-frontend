@@ -26,13 +26,18 @@ export class ProductService {
     );
   }
 
+  getSearchProducts(keyword: string): Observable<Product[]> {
+
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}`;
+
+    return this.getProducts(searchUrl);
+  }
+
   getProductListByCategory(categoryId: number): Observable<Product[]> {
 
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`;
 
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products)
-    );
+    return this.getProducts(searchUrl);
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
@@ -48,6 +53,12 @@ export class ProductService {
 
     // don't need the map to unwrap the JSON because he contains the searching entity directly.
     return this.httpClient.get<ProductCategory>(searchUrl);
+  }
+
+  private getProducts(searchUrl: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    );
   }
 }
 
