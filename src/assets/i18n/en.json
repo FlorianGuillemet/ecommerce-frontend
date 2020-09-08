@@ -14,5 +14,8 @@
     },
     "nav-bar": {
         "search-btn": "Search" 
+    },
+    "navigation": {
+        "back-to-product-list": "Back to product list"
     } 
 }

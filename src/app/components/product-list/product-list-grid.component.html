@@ -4,11 +4,19 @@
         <hr>
         <div class="container-fluid">
             <div class="row">
+
                 <div *ngFor="let product of products" class="col-md-3">
                     <div class="product-box">
-                        <img src="{{ product.imageUrl }}" class="img-responsive">
-                        <h1>{{ product.name }}</h1>
+
+                        <!-- Add a link on the image and the name -->
+
+                        <img routerLink="/products/{{ product.id }}" src="{{ product.imageUrl }}"
+                            class="img-responsive">
+                       
+                        <h1 routerLink="/products/{{ product.id }}">{{ product.name }}</h1>
+
                         <div class="price">{{ product.unitPrice | currency:'EUR' }}</div>
+
                         <a href="#" class="primary-btn">{{ 'cart.add-to-cart' | translate }}</a>
                     </div>
                 </div>
@@ -16,7 +24,7 @@
                 <!-- if products empty then display a message -->
                 <!-- ? is a safe navigation operator. Guards against null and undefined values in property paths.-->
                 <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-                    {{ 'products.no-products' | translate }} 
+                    {{ 'products.no-products' | translate }}
                 </div>
 
             </div>

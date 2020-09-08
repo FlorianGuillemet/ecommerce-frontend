@@ -14,5 +14,8 @@
     },
     "nav-bar": {
         "search-btn": "Rechercher" 
+    },
+    "navigation": {
+        "back-to-product-list": "Retour à la liste des produits"
     } 
 }
