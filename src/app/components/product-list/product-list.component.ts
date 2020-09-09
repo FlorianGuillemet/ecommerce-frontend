@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 import { Product } from '../../common/product';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/common/cart-item';
 
 @Component({
   selector: 'app-product-list',
@@ -24,6 +26,7 @@ export class ProductListComponent implements OnInit {
   previousKeyword: string = null;
 
   constructor(private productService: ProductService,
+              private cartService: CartService,
               // Inject the ActivatedRoute to know the current active route that loaded the component.
               // Usefull for accessing route parameters
               private route: ActivatedRoute) { }
@@ -42,6 +45,19 @@ export class ProductListComponent implements OnInit {
       ? this.handleSearchProducts()
       : this.handleListProducts();
 
+  }
+
+  addToCart(product: Product): void {
+    console.log(product.name + "   prix " + product.unitPrice);
+
+    const cartItem: CartItem = new CartItem(product);
+    this.cartService.addToCart(cartItem);
+  }
+
+  updatePageSize(pageSize: number): void {
+    this.pageSize = pageSize;
+    this.pageNumber = 1;
+    this.listProducts();
   }
 
   private handleListProducts(): void {
@@ -109,11 +125,5 @@ export class ProductListComponent implements OnInit {
       this.pageSize = data.page.size;
       this.totalElements = data.page.totalElements;
     };
-  }
-
-  updatePageSize(pageSize: number): void {
-    this.pageSize = pageSize;
-    this.pageNumber = 1;
-    this.listProducts();
   }
 }

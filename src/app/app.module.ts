@@ -19,6 +19,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 
 // import Ng bootstrap module (using hear for pagination)
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 // define the routes. Order of routes is important. First match wins. Start from most specific to generic
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
     TranslationComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartStatusComponent
   ],
   imports: [
     // Configure Router based on our routes
