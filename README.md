@@ -29,3 +29,13 @@ https://angular.io/guide/language-service
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## use pagination support
+
+ng add @angular/localize
+
+## use bootstrap components for the pagination
+
+npm install @ng-bootstrap/ng-bootstrap 
+and import NgbModule in imports:[] of app.module.ts file
+

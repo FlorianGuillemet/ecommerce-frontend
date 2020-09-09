@@ -17,6 +17,9 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
+// import Ng bootstrap module (using hear for pagination)
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // define the routes. Order of routes is important. First match wins. Start from most specific to generic
 const routes: Routes = [
  {path: 'products/:id', component: ProductDetailsComponent},
@@ -50,7 +53,9 @@ const routes: Routes = [
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+    }),
+    // Ng-bootstrap module
+    NgbModule
   ],
   providers: [ProductService],
   // import bootstrap directly on project instead of the classic html header import method

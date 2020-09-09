@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
 
+import { Pagination } from '../interfaces/pagination';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,10 +28,7 @@ export class ProductService {
 
   getProductList(): Observable<Product[]> {
 
-    // Return an Observable of Products Array. Maps the JSON data from Spring Data REST to a Product array
-    return this.httpClient.get<GetResponseProducts>(this.baseUrl).pipe(
-      map(response => response._embedded.products)
-    );
+    return this.getProducts(this.baseUrl);
   }
 
   getSearchProducts(keyword: string): Observable<Product[]> {
@@ -39,11 +38,31 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
+  getSearchProductsPaginate(page: number, pageSize: number, keyword: string): Observable<GetResponseProducts> {
+
+    // need to build URL based on keyword, page and size
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}`
+                      + `&page=${page}`
+                      + `&size=${pageSize}`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
+  }
+
   getProductListByCategory(categoryId: number): Observable<Product[]> {
 
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`;
 
     return this.getProducts(searchUrl);
+  }
+
+  getProductListByCategoryPaginate(page: number, pageSize: number, categoryId: number): Observable<GetResponseProducts> {
+
+    // need to build URL based on category Id, page and size
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`
+                      + `&page=${page}`
+                      + `&size=${pageSize}`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
@@ -61,6 +80,7 @@ export class ProductService {
     return this.httpClient.get<ProductCategory>(searchUrl);
   }
 
+  // Return an Observable of Products Array. Maps the JSON data from Spring Data REST to a Product array
   private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map(response => response._embedded.products)
@@ -69,15 +89,17 @@ export class ProductService {
 }
 
 // Interface to unwraps the JSON from Spring Data REST _embedded entry
-interface GetResponseProducts {
+interface GetResponseProducts extends Pagination {
   _embedded: {
     products: Product[];
   };
 }
 
-interface GetResponseProductCategories {
+interface GetResponseProductCategories extends Pagination {
   _embedded: {
     productCategory: ProductCategory[];
   };
 }
+
+
 

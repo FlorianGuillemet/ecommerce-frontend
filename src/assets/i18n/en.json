@@ -16,6 +16,7 @@
         "search-btn": "Search" 
     },
     "navigation": {
-        "back-to-product-list": "Back to product list"
+        "back-to-product-list": "Back to product list",
+        "page-size": "Page Size"
     } 
 }

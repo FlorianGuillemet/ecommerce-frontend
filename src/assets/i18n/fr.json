@@ -16,6 +16,7 @@
         "search-btn": "Rechercher" 
     },
     "navigation": {
-        "back-to-product-list": "Retour à la liste des produits"
+        "back-to-product-list": "Retour à la liste des produits",
+        "page-size": "Taille page"
     } 
 }
