@@ -7,10 +7,20 @@
         "name": "Product name",
         "unitPrice": "Unit price",
         "description": "Description",
-        "unitsInStock": "Units in stock"
+        "unitsInStock": "Units in stock",
+        "productDetail": "Product Detail",
+        "productImage": "Product Image"
     },
     "cart": {
-        "add-to-cart": "Add to cart"
+        "add-to-cart": "Add to cart",
+        "totalQuantity": "Total Quantity",
+        "totalPrice": "Total Price",
+        "shipping": "Shipping",
+        "cartEmpty": "Your shopping cart is empty"
+    },
+    "cartItem": {
+        "quantity": "Quantity",
+        "subTotal": "Subtotal"
     },
     "nav-bar": {
         "search-btn": "Search" 

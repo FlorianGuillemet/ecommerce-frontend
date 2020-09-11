@@ -53,18 +53,43 @@ export class CartService {
 
   }
 
-  private computeCartTotals(): void {
+  computeCartTotals(): void {
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
 
     for (const cartItem of this.cartItems) {
-      totalPriceValue += cartItem.quantity * cartItem.unitPrice;
+      cartItem.subTotal = cartItem.quantity * cartItem.unitPrice;
+      totalPriceValue += cartItem.subTotal;
       totalQuantityValue += cartItem.quantity;
     }
 
     // publish/send the new values ... all the subscribers will receive the new data
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
+  }
+
+  decrementQuantity(cartItem: CartItem): void {
+
+    cartItem.quantity --;
+
+    if (cartItem.quantity === 0) {
+      this.removeCartItem(cartItem);
+    } else {
+      this.computeCartTotals();
+    }
+  }
+
+  removeCartItem(cartItem: CartItem): void {
+
+    // get index of item in the array
+    const itemIndex = this.cartItems.findIndex(eachCartItem => eachCartItem.id === cartItem.id);
+
+    // if found, remove the item from the array at the given index
+    if ( itemIndex >= 0 ) {
+      this.cartItems.splice(itemIndex, 1);
+    }
+
+    this.computeCartTotals();
   }
 
 }

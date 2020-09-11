@@ -36,6 +36,31 @@ ng add @angular/localize
 
 ## use bootstrap components for the pagination
 
-npm install @ng-bootstrap/ng-bootstrap 
+npm install @ng-bootstrap/ng-bootstrap
 and import NgbModule in imports:[] of app.module.ts file
 
+## Principes
+Le component appelé récupère les paramètres de la requête (exemple id ou name) puis appèle un service qui communique avec la BDD via un client Http
+
+Le component souscrit ou s'abonne à un service (à une méthode ou une propriété d'un service) qui lui retourne un Observable. On affecte ensuite le retour de cette souscription à une propriété du component.
+    ex:
+    // get the product name (to display it on top of the page).
+    ```this.productService.getProductCategory(this.currentCategoryId).subscribe(
+      data => {
+        this.currentCategoryName = data.categoryName;
+      }
+    );```
+
+    // subscribe to the cart totalPrice
+    ```this.cartService.totalPrice.subscribe(
+      data => {
+        this.totalPrice = data;
+      }
+    );```
+
+## Plus
+Component spécifique pour l'incrémentation et la diminution des quantités
+
+Module de Traduction
+
+Requete spécifique pour afficher le nom de catégorie dans le component Product list

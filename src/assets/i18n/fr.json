@@ -7,10 +7,20 @@
         "name": "Nom du produit",
         "unitPrice": "Prix unitaire",
         "description": "Description",
-        "unitsInStock": "Unités en stock"
+        "unitsInStock": "Unités en stock",
+        "productDetail": "Détail du produit",
+        "productImage": "Image du produit"
     },
     "cart": {
-        "add-to-cart": "Ajouter au panier"
+        "add-to-cart": "Ajouter au panier",
+        "totalQuantity": "Quantité totale",
+        "totalPrice": "Prix total",
+        "shipping": "Livraison",
+        "cartEmpty": "Votre panier est vide"
+    },
+    "cartItem": {
+        "quantity": "Quantité",
+        "subTotal": "Sous-total"
     },
     "nav-bar": {
         "search-btn": "Rechercher" 
