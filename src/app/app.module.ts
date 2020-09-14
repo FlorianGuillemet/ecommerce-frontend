@@ -23,7 +23,6 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreditCardComponent } from './components/checkout/credit-card/credit-card.component';
 
 // define the routes. Order of routes is important. First match wins. Start from most specific to generic
 const routes: Routes = [
@@ -49,8 +48,7 @@ const routes: Routes = [
     ProductDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
-    CheckoutComponent,
-    CreditCardComponent
+    CheckoutComponent
   ],
   imports: [
     // Configure Router based on our routes

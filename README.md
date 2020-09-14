@@ -58,6 +58,20 @@ Le component souscrit ou s'abonne à un service (à une méthode ou une proprié
       }
     );```
 
+
+## Observable
+
+    // the "of" operator from rxjs, will wrap an object as an Observable
+    ```getCreditCardMonths(startMonth: number): Observable<number[]> {
+
+      const data: number[] = [];
+
+      for (let month = startMonth; month <= 12; month++) {
+        data.push(month);
+      }
+      return of(data);
+    } ```
+
 ## Plus
 Component spécifique pour l'incrémentation et la diminution des quantités
 

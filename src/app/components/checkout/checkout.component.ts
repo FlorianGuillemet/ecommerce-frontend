@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,8 +15,12 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0.00;
   totalQuantity: number = 0;
 
+  creditCardMonths: number[] = [];
+  creditCardYears: number[] = [];
+
   // inject form Builder
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private checkoutFormService: CheckoutFormService) { }
 
   ngOnInit(): void {
 
@@ -50,6 +55,21 @@ export class CheckoutComponent implements OnInit {
       })
     });
 
+    // populate credit card months
+
+    const startMonth: number = new Date().getMonth() + 1;
+
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => this.creditCardMonths = data
+    );
+
+    // populate credit card years
+
+    this.checkoutFormService.getCreditCardYears().subscribe(
+      data => this.creditCardYears = data
+    );
+
+
   }
 
   onSubmit(): void {
@@ -66,6 +86,29 @@ export class CheckoutComponent implements OnInit {
       this.checkoutFormGroup.controls.billingAddress
       .reset();
     }
+  }
+
+  handleMonthsAndYears(): void{
+
+    const creditCardFormGroup = this.checkoutFormGroup.get('creditCard');
+
+    const currentYear: number = new Date().getFullYear();
+
+    const selectedYear: number = Number(creditCardFormGroup.value.expirationYear);
+
+    // if the current year equals the selected year, then start with the current month.
+
+    let startMonth: number;
+
+    if (currentYear === selectedYear) {
+      startMonth = new Date().getMonth() + 1;
+    } else {
+      startMonth = 1;
+    }
+
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => this.creditCardMonths = data
+    );
   }
 
 }

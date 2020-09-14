@@ -201,8 +201,11 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="expirationMonth" type="text">
-                                    <option>January</option>
-                                    <option>February</option>
+
+                                    <option *ngFor="let month of creditCardMonths">
+                                        {{ month }}
+                                    </option>
+
                                 </select>
                             </div>
                         </div>
@@ -212,9 +215,14 @@
                         <div class="col-md-2"> <label>{{ 'checkout.creditCard.expirationYear' | translate }}</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <select formControlName="expirationYear" type="text">
-                                    <option>2020</option>
-                                    <option>2021</option>
+                                <select formControlName="expirationYear" 
+                                        type="text"
+                                        (change)="handleMonthsAndYears()">
+
+                                    <option *ngFor="let year of creditCardYears">
+                                        {{ year }}
+                                    </option>
+
                                 </select>
                             </div>
                         </div>
