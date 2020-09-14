@@ -16,11 +16,13 @@
         "totalQuantity": "Total Quantity",
         "totalPrice": "Total Price",
         "shipping": "Shipping",
-        "cartEmpty": "Your shopping cart is empty"
+        "cartEmpty": "Your shopping cart is empty",
+        "checkout": "Checkout"
     },
     "cartItem": {
         "quantity": "Quantity",
-        "subTotal": "Subtotal"
+        "subTotal": "Subtotal",
+        "remove": "Remove"
     },
     "nav-bar": {
         "search-btn": "Search" 
@@ -28,5 +30,41 @@
     "navigation": {
         "back-to-product-list": "Back to product list",
         "page-size": "Page Size"
+    },
+    "checkout": {
+        "customer": {
+            "title": "Customer",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email"
+        },
+        "shippingAddress": {
+            "title": "Shipping Address",
+            "country": "Country",
+            "state": "State",
+            "zipCode": "Zip Code",
+            "city": "City",
+            "street": "Street"
+        },
+        "billingAddress": {
+            "title": "Billing Address",
+            "country": "Country",
+            "state": "State",
+            "zipCode": "Zip code",
+            "city": "City",
+            "street": "Street"
+        },
+        "creditCard": {
+            "title": "Credit Card",
+            "cardType": "Card type",
+            "nameOnCard": "Name on card",
+            "cardNumber": "Card number",
+            "securityCode": "Security code",
+            "expirationMonth": "Expiration month",
+            "expirationYear": "Expiration year"
+        },
+        "purchase": "Purchase",
+        "reviewOrder": "Review your order"
+        
     } 
 }

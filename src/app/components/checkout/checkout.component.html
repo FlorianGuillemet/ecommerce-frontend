@@ -1,0 +1,244 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+                <!-- customer formgroup -->
+                <div formGroupName="customer" class="form-area">
+                    <h3>{{ 'checkout.customer.title' | translate }}</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.customer.firstName' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="firstName" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.customer.lastName' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="lastName" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.customer.email' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="email" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- shipping Address formgroup -->
+                <div formGroupName="shippingAddress" class="form-area">
+                    <h3>{{ 'checkout.shippingAddress.title' | translate }}</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.country' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="country" type="text">
+                                    <option>To Do</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.street' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="street" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.city' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="city" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.state' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="state" type="text">
+                                    <option>To Do</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.zipCode' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="zipCode" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add checkbox to copy shipping to billing -->
+                <div class="input-space">
+                    <label class="au-checkbox">
+                        <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+                        <span class="au-checkmark"></span>Billing Address same as Shipping Address
+                    </label>
+                </div>
+
+
+                <!-- billing Address formgroup -->
+                <div formGroupName="billingAddress" class="form-area">
+                    <h3>{{ 'checkout.billingAddress.title' | translate }}</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.billingAddress.country' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="country" type="text">
+                                    <option>To Do</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.billingAddress.street' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="street" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.billingAddress.city' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="city" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.billingAddress.state' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="state" type="text">
+                                    <option>To Do</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.billingAddress.zipCode' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="zipCode" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- credit card formgroup -->
+                <div formGroupName="creditCard" class="form-area">
+                    <h3>{{ 'checkout.creditCard.title' | translate }}</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.cardType' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="cardType" type="text">
+                                    <option>Visa</option>
+                                    <option>MasterCard</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.nameOnCard' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="nameOnCard" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.cardNumber' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="cardNumber" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.securityCode' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="securityCode" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.expirationMonth' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="expirationMonth" type="text">
+                                    <option>January</option>
+                                    <option>February</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>{{ 'checkout.creditCard.expirationYear' | translate }}</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="expirationYear" type="text">
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- order details -->
+                <div class="form-area">
+                    <h3>{{ 'checkout.reviewOrder' | translate }}</h3>
+
+                    <p>{{ 'cart.totalQuantity' | translate }}: {{ totalQuantity }}</p>
+                    <p>{{ 'cart.shipping' | translate }}: FREE</p>
+                    <p>{{ 'cart.totalPrice' | translate }}: {{ totalPrice | currency: 'EUR' }}</p>
+                </div>
+
+                <!-- submit button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">
+                        {{ 'checkout.purchase' | translate }}
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

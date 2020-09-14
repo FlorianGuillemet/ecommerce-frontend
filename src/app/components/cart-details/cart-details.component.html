@@ -41,7 +41,7 @@
                             </div>
 
                             <button (click)="removeCartItem(cartItem)" class="btn btn-warning btn-sm mt-2 mb-2">
-                                    Remove
+                                {{ 'cartItem.remove' | translate }}
                             </button>
                             
                             <div>
@@ -57,7 +57,8 @@
                             <p>{{'cart.totalQuantity' | translate }}: {{ totalQuantity }}<p>
                             <p>{{'cart.shipping' | translate }}: FREE</p>
                             <p>{{'cart.totalPrice' | translate }}: {{ totalPrice | currency:'EUR' }}</p>
-                        </td>                    
+                            <a routerLink="/checkout" class="btn btn-success">{{ 'cart.checkout' | translate }}</a>
+                        </td>
                     </tr>
     
                 </table>
