@@ -94,6 +94,7 @@ export class CheckoutComponent implements OnInit {
 
     const currentYear: number = new Date().getFullYear();
 
+    // to get the form value
     const selectedYear: number = Number(creditCardFormGroup.value.expirationYear);
 
     // if the current year equals the selected year, then start with the current month.
@@ -110,5 +111,34 @@ export class CheckoutComponent implements OnInit {
       data => this.creditCardMonths = data
     );
   }
+
+
+  /*
+  // another way to make two fields dependent:
+  // pass as a parameter of the method the value of the field that has changed
+  // in html: use $event.target.value to pass the parameter value.
+  // <select formControlName="expirationYear" type="text" (change)="handleMonthsAndYears($event.target.value)"
+
+  handleMonthsAndYears(selectedYear: number): void{
+
+    const creditCardFormGroup = this.checkoutFormGroup.get('creditCard');
+
+    const currentYear: number = new Date().getFullYear();
+
+    // if the current year equals the selected year, then start with the current month.
+
+    let startMonth: number;
+
+    if (currentYear === Number(selectedYear)) {
+      startMonth = new Date().getMonth() + 1;
+    } else {
+      startMonth = 1;
+    }
+
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => this.creditCardMonths = data
+    );
+  }
+  */
 
 }
