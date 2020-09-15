@@ -72,6 +72,9 @@ Le component souscrit ou s'abonne à un service (à une méthode ou une proprié
       return of(data);
     } ```
 
+## form setValue()
+in reactive forms, when we use .setValue() of a formControl, we define the value selected in the form.
+
 ## Plus
 Component spécifique pour l'incrémentation et la diminution des quantités
 

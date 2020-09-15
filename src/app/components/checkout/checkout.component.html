@@ -44,8 +44,13 @@
                         <div class="col-md-2"> <label>{{ 'checkout.shippingAddress.country' | translate }}</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <select formControlName="country" type="text">
-                                    <option>To Do</option>
+                                <select formControlName="country" 
+                                        type="text" 
+                                        (change)="getStates('shippingAddress')">
+                                    <option *ngFor="let country of countries" 
+                                            [ngValue]="country">
+                                        {{ country.name }} - {{ country.code }}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -74,7 +79,9 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="state" type="text">
-                                    <option>To Do</option>
+                                    <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                                        {{ state.name }}         
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -107,8 +114,13 @@
                         <div class="col-md-2"> <label>{{ 'checkout.billingAddress.country' | translate }}</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <select formControlName="country" type="text">
-                                    <option>To Do</option>
+                                <select formControlName="country" 
+                                        type="text" 
+                                        (change)="getStates('billingAddress')">
+                                    <option *ngFor="let country of countries" 
+                                            [ngValue]="country">
+                                        {{ country.name }} - {{ country.code }}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -136,8 +148,11 @@
                         <div class="col-md-2"> <label>{{ 'checkout.billingAddress.state' | translate }}</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <select formControlName="state" type="text">
-                                    <option>To Do</option>
+                                <select formControlName="state" 
+                                        type="text" >
+                                    <option *ngFor="let state of billingAddressStates" [ngValue]="state">
+                                        {{ state.name }}         
+                                    </option>
                                 </select>
                             </div>
                         </div>
