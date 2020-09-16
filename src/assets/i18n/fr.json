@@ -17,7 +17,7 @@
         "totalPrice": "Prix total",
         "shipping": "Livraison",
         "cartEmpty": "Votre panier est vide",
-        "checkout": "Contrôles"
+        "checkout": "Commander"
     },
     "cartItem": {
         "quantity": "Quantité",
