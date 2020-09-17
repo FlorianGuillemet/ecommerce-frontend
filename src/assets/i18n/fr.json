@@ -33,37 +33,48 @@
     },
     "checkout": {
         "customer": {
-            "title": "Customer",
-            "firstName": "First Name",
-            "lastName": "Last Name",
+            "title": "Client",
+            "firstName": "Prénom",
+            "lastName": "Nom",
             "email": "Email"
         },
         "shippingAddress": {
-            "title": "Shipping Address",
-            "country": "Country",
-            "state": "State",
-            "zipCode": "Zip Code",
-            "city": "City",
-            "street": "Street"
+            "title": "Adresse de livraison",
+            "country": "Pays",
+            "state": "Etat / région",
+            "zipCode": "Code postal",
+            "city": "Ville",
+            "street": "Rue"
         },
         "billingAddress": {
-            "title": "Billing Address",
-            "country": "Country",
-            "state": "State",
-            "zipCode": "Zip Code",
-            "city": "City",
-            "street": "Street"
+            "title": "Adresse de facturation",
+            "country": "Pays",
+            "state": "Etat / région",
+            "zipCode": "Code postal",
+            "city": "Ville",
+            "street": "Rue"
         },
         "creditCard": {
-            "title": "Credit Card",
-            "cardType": "Card type",
-            "nameOnCard": "Name on card",
-            "cardNumber": "Card number",
-            "securityCode": "Security code",
-            "expirationMonth": "Expiration month",
-            "expirationYear": "Expiration year"
+            "title": "Carte de crédit",
+            "cardType": "Type de carte",
+            "nameOnCard": "Nom sur la carte",
+            "cardNumber": "Numéro de carte",
+            "securityCode": "Code de sécurité",
+            "expirationMonth": "Date d'expiration (mois)",
+            "expirationYear": "Date d'expiration (année)"
         },
-        "purchase": "Purchase",
-        "reviewOrder": "Récapitulatif de votre commande"
+        "purchase": "Payer",
+        "reviewOrder": "Récapitulatif de votre commande",
+        "billingSameAsShippingAddress": "L'adresse de facturation est identique à celle de livraison",
+        "errors": {
+            "fieldRequired": "Ce champ est requis",
+            "zipCodeFormat": "Le code postal doit avoir un format valide (5 ou 6 chiffres)",
+            "fieldMin2CharactersLong": "Ce champ doit avoir deux caractères au minimum",
+            "cardSecurityCodeMustBeValidFormat": "Le code de sécurité de la carte doit avoir un format valide (3 chiffres)",
+            "cardNumberMustBeValidFormat": "Le numéro de carte doit avoir un format valide (XXXX-XXXX-XXXX-XXXX)",
+            "zipCodeMustBeValidFormat": "Le code postal doit avoir un format valide (5 ou 6 chiffres)",
+            "emailMustBeValidFormat": "Email doit avoir d'email un format valide"
+        },
+        "shippingFree": "GRATUIT"
     } 
 }

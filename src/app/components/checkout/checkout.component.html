@@ -17,11 +17,11 @@
                                 <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="firstName.errors.required || firstName.errors.notOnlyWhitespace ">
-                                        First Name is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="firstName.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
 
                                 </div>
@@ -38,11 +38,11 @@
                                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="lastName.errors.required || lastName.errors.notOnlyWhitespace ">
-                                        Last Name is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="lastName.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }}
                                     </div>
                                     
                                 </div>
@@ -59,11 +59,11 @@
                                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="email.errors.required">
-                                        Email is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="email.errors.pattern">
-                                        Email must be a valid email address format
+                                        {{ 'checkout.errors.emailMustBeValidFormat' | translate }}
                                     </div>
                                     
                                 </div>
@@ -92,7 +92,7 @@
                                 <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="shippingAddressCountry.errors.required">
-                                        Country is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
                                     
                                 </div>
@@ -109,11 +109,11 @@
                                 <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="shippingAddressStreet.errors.required || shippingAddressStreet.errors.notOnlyWhitespace ">
-                                        Street is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="shippingAddressStreet.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -130,11 +130,11 @@
                                 <div *ngIf="shippingAddressCity.invalid && (shippingAddressCity.dirty || shippingAddressCity.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="shippingAddressCity.errors.required || shippingAddressCity.errors.notOnlyWhitespace ">
-                                        City is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="shippingAddressCity.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -155,7 +155,7 @@
                                 <div *ngIf="shippingAddressState.invalid && (shippingAddressState.dirty || shippingAddressState.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="shippingAddressState.errors.required">
-                                        State is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
                                     
                                 </div>
@@ -172,11 +172,11 @@
                                 <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="shippingAddressZipCode.errors.required">
-                                        Zip code is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="shippingAddressZipCode.errors.pattern">
-                                        Zip code must be a valid zip code format (5 or 6 digits)
+                                        {{ 'checkout.errors.zipCodeFormat' | translate }}
                                     </div>
                                     
                                 </div>
@@ -189,7 +189,7 @@
                 <div class="input-space">
                     <label class="au-checkbox">
                         <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
-                        <span class="au-checkmark"></span>Billing Address same as Shipping Address
+                        <span class="au-checkmark"></span>{{ 'checkout.billingSameAsShippingAddress' | translate }} 
                     </label>
                 </div>
 
@@ -214,7 +214,7 @@
                                 <div *ngIf="billingAddressCountry.invalid && (billingAddressCountry.dirty || billingAddressCountry.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="billingAddressCountry.errors.required">
-                                        Country is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
                                     
                                 </div>
@@ -231,11 +231,11 @@
                                 <div *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="billingAddressStreet.errors.required || billingAddressStreet.errors.notOnlyWhitespace ">
-                                        Street is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="billingAddressStreet.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -252,11 +252,11 @@
                                 <div *ngIf="billingAddressCity.invalid && (billingAddressCity.dirty || billingAddressCity.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="billingAddressCity.errors.required || billingAddressCity.errors.notOnlyWhitespace ">
-                                        City is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="billingAddressCity.errors.minlength">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -278,7 +278,7 @@
                                 <div *ngIf="billingAddressState.invalid && (billingAddressState.dirty || billingAddressState.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="billingAddressState.errors.required">
-                                        State is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
                                     
                                 </div>
@@ -295,11 +295,11 @@
                                 <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="billingAddressZipCode.errors.required">
-                                        Zip code is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="billingAddressZipCode.errors.pattern">
-                                        Zip code must be a valid zip code format (5 or 6 digits)
+                                        {{ 'checkout.errors.zipCodeMustBeValidFormat' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -324,7 +324,7 @@
                                 <div *ngIf="creditCardType.invalid && (creditCardType.dirty || creditCardType.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="creditCardType.errors.required">
-                                        Card type is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
                                     
                                 </div>
@@ -341,11 +341,11 @@
                                 <div *ngIf="creditCardNameOnCard.invalid && (creditCardNameOnCard.dirty || creditCardNameOnCard.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="creditCardNameOnCard.errors.required || creditCardNameOnCard.errors.notOnlyWhitespace ">
-                                        Card type is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="creditCardNameOnCard.errors.minlength ">
-                                        This field must be at least 2 characters long
+                                        {{ 'checkout.errors.fieldMin2CharactersLong' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -362,11 +362,11 @@
                                 <div *ngIf="creditCardNumber.invalid && (creditCardNumber.dirty || creditCardNumber.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="creditCardNumber.errors.required">
-                                        Card type is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="creditCardNumber.errors.pattern">
-                                        Card number must be a valid card number format (XXXX-XXXX-XXXX-XXXX)
+                                        {{ 'checkout.errors.cardNumberMustBeValidFormat' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -383,11 +383,11 @@
                                 <div *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)" class="alert alert-danger mt-1">
 
                                     <div *ngIf="creditCardSecurityCode.errors.required">
-                                        Card type is required
+                                        {{ 'checkout.errors.fieldRequired' | translate }}
                                     </div>
 
                                     <div *ngIf="creditCardSecurityCode.errors.pattern">
-                                        Card security code must be a valid security code format (3 digits)
+                                        {{ 'checkout.errors.cardSecurityCodeMustBeValidFormat' | translate }} 
                                     </div>
                                     
                                 </div>
@@ -436,7 +436,7 @@
                     <h3>{{ 'checkout.reviewOrder' | translate }}</h3>
 
                     <p>{{ 'cart.totalQuantity' | translate }}: {{ totalQuantity }}</p>
-                    <p>{{ 'cart.shipping' | translate }}: FREE</p>
+                    <p>{{ 'cart.shipping' | translate }}: {{ 'checkout.shippingFree' | translate }} </p>
                     <p>{{ 'cart.totalPrice' | translate }}: {{ totalPrice | currency: 'EUR' }}</p>
                 </div>
 

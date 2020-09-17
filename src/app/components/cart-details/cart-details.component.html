@@ -55,7 +55,7 @@
                         <td colspan="2"></td>
                         <td style="font-weight: bold">
                             <p>{{'cart.totalQuantity' | translate }}: {{ totalQuantity }}<p>
-                            <p>{{'cart.shipping' | translate }}: FREE</p>
+                            <p>{{'cart.shipping' | translate }}: {{ 'checkout.shippingFree' | translate }}</p>
                             <p>{{'cart.totalPrice' | translate }}: {{ totalPrice | currency:'EUR' }}</p>
                             <a routerLink="/checkout" class="btn btn-success">{{ 'cart.checkout' | translate }}</a>
                         </td>

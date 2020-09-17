@@ -64,7 +64,19 @@
             "expirationYear": "Expiration year"
         },
         "purchase": "Purchase",
-        "reviewOrder": "Review your order"
+        "reviewOrder": "Review your order",
+        "billingSameAsShippingAddress": "Billing Address same as Shipping Address",
+        "errors": {
+            "fieldRequired": "This field is required",
+            "zipCodeFormat": "Zip code must be a valid zip code format (5 or 6 digits)",
+            "fieldMin2CharactersLong": "This field must be at least 2 characters long",
+            "cardSecurityCodeMustBeValidFormat": "Card security code must be a valid security code format (3 digits)",
+            "cardNumberMustBeValidFormat": "Card number must be a valid card number format (XXXX-XXXX-XXXX-XXXX)",
+            "zipCodeMustBeValidFormat": "Zip code must be a valid zip code format (5 or 6 digits)",
+            "emailMustBeValidFormat": "Email must be a valid email address format"
+
+        },
+        "shippingFree": "FREE"
         
     } 
 }
